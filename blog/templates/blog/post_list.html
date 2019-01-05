@@ -8,7 +8,8 @@
     </div>
     <ul class="list-group-flush">
         {% for post in object_list %}
-            <li class="list-group-item"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a>    - {{ post.author }}     <br>      {{ post.publish_date }}</li>
+            <li class="list-group-item"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a>    - {{ post.author }}
+            <br>{{ post.preview }}<br>{{ post.publish_date }}</li>
         {% endfor %}
     </ul>
 {% endblock %}
