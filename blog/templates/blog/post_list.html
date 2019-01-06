@@ -3,7 +3,12 @@
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <h1 class="display-3">Combat blogposts</h1>
-        <p class="lead">Most recent, first.</p>
+        <p class="lead">Combat seeks to empower users of technology to understand the way their data is being used behind the scenes. To illuminate the practices that threaten privacy, curtail autonomy, and so often do so without a user’s informed consent. </p>
+        <form id="searchform" class="input-group-prepend" action="" method="get" accept-charset="utf-8">
+          <button class="btn btn-outline-secondary" type="submit">Go!
+     </button>
+     <input class="form-control" id="searchbox" name="q" type="text" placeholder="Search">
+   </form>
       </div>
     </div>
     <ul class="list-group-flush">
@@ -12,4 +17,92 @@
             <br>{{ post.preview }}<br>{{ post.publish_date }}</li>
         {% endfor %}
     </ul>
+
+    <!-- DIAGNOSTICS / SESSION INFO -->
+            <!-- <div class="container" style="width: 50rem;"> -->
+            <div class="container">
+              <div class="card"
+              <div class="card" style="width: 70rem;">
+                <div class="card-header">post</div>
+                <div class="card-body">
+                  <ul class="list-group" data-toggle="collapse">
+                    {% for k, v in request.POST.items %}
+                  <li class="list-group-item">{{ k }} : {{ v }}</li>
+                    {% endfor %}
+                  </ul>
+              </div>
+              </div>
+
+
+                <div class="card" style="width: 70rem;">
+                  <div class="card-header">get</div>
+                  <div class="card-body">
+                    <ul class="list-group" data-toggle="collapse">
+                      {% for k, v in request.GET.items %}
+                      <li class="list-group-item">{{ k }} : {{ v }}</li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                  </div>
+                </div>
+
+
+                <div class="card" style="width: 70rem;">
+                  <div class="card-header">HttpRequest META</div>
+                  <div class="card-body">
+                    {{ request.next }}
+                    <ul class="list-group" data-toggle="collapse">
+                      <!--  accessing a dictionary           -->
+                      {% for key, value in request.META.items %}
+                      <!--  querying the Dict                -->
+                    <li class="list-group-item">{{ key }}  : {{ value }}</li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                  </div>
+                </div>
+
+                <div class="card" style="width: 70rem;">
+                  <div class="card-header">HttpRequest COOKIES</div>
+                  <div class="card-body">
+                    {{ response.next }}
+                    <ul class="list-group list-group-flush" data-toggle="collapse">
+                      <!--  accessing a dictionary           -->
+                      {% for key, value in request.COOKIES.items %}
+                      <!--  querying the Dict                -->
+                    <li class="list-group-item">{{ key }}  :  {{ value }}</li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                  </div>
+                </div>
+
+                <div class="card" style="width: 70rem;">
+                  <div class="card-header">HttpResponse Session</div>
+                  <div class="card-body">
+                    <ul class="list-group" data-toggle="collapse">
+                      <!--  accessing a dictionary           -->
+                      {% for key, value in request.session.items %}
+                      <!--  querying the Dict                -->
+                    <li class="list-group-item">{{ key }}  :  {{ value }}</li>
+                      {% endfor %}
+                  </ul>
+                  </div>
+                </div>
+                </div>
+
+
+                <div class="card" style="width: 70rem;">
+                  <div class="card-header">HttpResponse META</div>
+                  <div class="card-body">
+                    <ul class="list-group" data-toggle="collapse">
+                      <!--  accessing a dictionary           -->
+                      {% for key, value in request.META.items %}
+                      <!--  querying the Dict                -->
+                    <li class="list-group-item ">{{ key }}  :  {{ value }}</li>
+                      {% endfor %}
+                  </ul>
+                  </div>
+                </div>
+                </div>
 {% endblock %}
