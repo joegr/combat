@@ -21,5 +21,5 @@ from blog.views import PostDetail, PostList
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('post/<int:pk>/', PostDetail.as_view(), name='post-detail'),
-    path('/', PostList.as_view(), name='post-list'),
+    path('', PostList.as_view(), name='post-list'),
 ]
