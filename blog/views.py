@@ -9,5 +9,3 @@ class PostList(ListView):
 
 class PostDetail(DetailView):
     model = Post
-
-    queryset = Post.objects.all()
