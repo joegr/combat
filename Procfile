@@ -1,1 +1,1 @@
-web: gunicorn combat/combat.wsgi
+web: gunicorn combat.wsgi
